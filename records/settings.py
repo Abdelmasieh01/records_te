@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'records_te.onrender.com',
+    'records-te.onrender.com',
     'localhost',
 ]
 
@@ -140,4 +140,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #CSRF Setting
-CSRF_TRUSTED_ORIGINS = ['https://records_te.onrender.com/']
+CSRF_TRUSTED_ORIGINS = ['https://records-te.onrender.com/']
