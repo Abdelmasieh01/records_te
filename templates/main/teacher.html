@@ -1,0 +1,41 @@
+{% extends "main/home.html" %}
+{% block header %}
+<h1 class="p-5">جداول المعلم: {{ teacher.name }}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="px-4">
+{% if tables %}
+  <table class="table table-bordered table-striped table-success" style="width:60rem">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">اسم نشاط التطوير المهني</th>
+        <th scope="col">الجهة</th>
+        <th scope="col">تاريخ البداية</th>
+        <th scope="col">تاريخ النهاية</th>
+        <th scope="col">نوع النشاط</th>
+        <th scope="col">نوع المدة</th>
+        <th scope="col">مدة النشاط</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for table in tables %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ table.name }}</td>
+        <td>{{ table.auth }}</td>
+        <td>{{ table.start_date|date:'d/m/Y' }}</td>
+        <td>{{ table.end_date|date:'d/m/Y' }}</td>
+        <td>{{ table.type }}</td>
+        <td>{{ table.t_dur }}</td>
+        <td>{{ table.dur }}</td>
+        </td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+{% else %}
+<h1 class="px-5">لا توجد أي جداول مدرجة بعد لهذا المعلم.</h1>
+{% endif %}
+{% endblock %}

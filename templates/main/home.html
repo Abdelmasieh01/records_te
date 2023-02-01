@@ -1,0 +1,33 @@
+<html dir="rtl" lang="ar">
+{% block title %}
+<title>سجل النشاط المهمني للمعلمين</title>
+{% endblock %}
+
+{% load static %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css" integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+
+{% block navbar %}
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">سجل الانشطة المهنية للمعلمين</a>
+    </div>
+</nav>
+{% endblock %}
+
+{% block header %}
+<h1 class="p-5">الصفحة الرئيسية للسجل المهني للمعلمين
+<br>يمكنك تصفح المعلمين من القائمة التالية:
+</h1>
+{% endblock %}
+
+{% block content %}
+<div class="px-5" style="width: 30rem">
+<ul class="list-group list-group-flush">
+    {% for teacher in teachers %}
+    <a href="{% url 'teacher' teacher.pk %}" class="list-group-item list-group-item-action">الاستاذ: {{ teacher.name }}</a>
+    {% endfor %}
+  </ul>
+{% endblock %}
+</div>
+</html>
